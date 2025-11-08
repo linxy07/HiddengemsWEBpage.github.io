@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Underrated PH Travel Destinations</title>
+   
+</head>
+
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Header and Navigation */
+header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 0.5rem 0;
+}
+
+.menu a:hover {
+    color: #3498db;
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 120px 20px 60px;
+    margin-top: 80px; /* Adjusted for fixed header */
+    background-image: url(clock-tower.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero h1, .hero p {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* Destinations Section */
+#destinations {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+#destinations h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #2c3e50;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+a {
+    text-decoration: none;
+    display: flex;
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.destination-card {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.destination-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover img {
+    transform: scale(1.05);
+}
+
+.destination-card h3 {
+    margin: 20px 20px 10px;
+    color: #2c3e50;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.destination-card p {
+    margin: 0 20px 15px;
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.destination-card h5 {
+    margin: 0 20px 20px;
+    color: #646c8e;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* About and Contact Sections */
+#about, #contact {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+#about h2, #contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #6986a3;
+    font-weight: 600;
+}
+
+#about p, #contact p {
+    font-size: 1.2rem;
+    color: #a4a4a4;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+#contact input, #contact textarea {
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact input:focus, #contact textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+    outline: none;
+}
+
+#contact textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#contact button {
+    padding: 15px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#contact button:hover {
+    background: linear-gradient(135deg, #2980b9, #21618c);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+footer p {
+    margin: 20px 0 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+    .destination-grid {
+        grid-template-columns: 1fr;
+    }
+    .menu {
+        gap: 15px;
+    }
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+</style>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">Philippines Explorer</div>
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+   
+    <section id="home" class="hero">
+        <h1>Hidden Gems in the Philippines</h1>
+        <p>Discover breathtaking islands, vibrant cultures, and unforgettable adventures.</p>
+    </section>
+
+    <section id="destinations">
+        <h2>LUZON</h2>
+        <div class="destination-grid">
+            <a href="https://en.wikipedia.org/wiki/Escolta_Street">
+                <button class="destination-card">
+                    <img src="escolta.jpeg">
+                    <h3>Escolta Street</h3>
+                    <p>A historic east-west street in the Binondo district of Manila, known for its rich architectural heritage and past as a premier commercial hub.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Binondo, Manila</h5>
+                </button>
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Bahay_Nakpil-Bautista">
+                <button class="destination-card">
+                    <img src="nakpil-bautista.jpg">
+                    <h3>Bahay Nakpil-Bautista</h3>
+                    <p>A historic heritage house in Quiapo, Manila, known for its architectural beauty and deep ties to the Philippine Revolution. Built in 1914, it served as the home of Katipunan heroes and now functions as a museum and cultural center.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> 432 A. Bautista, Quiapo, Manila</h5>
+                </button>
+            </a>
+            <a href="https://commons.wikimedia.org/wiki/File:Rapang_Cliff_-_Itbayat_Batanes_1.jpg">
+                <button class="destination-card">
+                    <img src="rapang-cliff.jpg">
+                    <h3>Rapang CLiffs</h3>
+                    <p>A limestone rock formation on Itbayat island, facing the Pacific Ocean, with breathtaking views, especially at sunrise.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Itbayat, Batanes</h5>
+                </button>
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Alibijaban">
+                <button class="destination-card">
+                    <img src="Alibijaban_Island,_San_Andres,_Quezon_Province,_Philippines_(30).jpg">
+                    <h3>Alibijaban Island</h3>
+                    <p>A hidden tropical gem off the coast known for its pristine mangrove forests, white-sand beaches, and vibrant marine life. It's a peaceful escape perfect for nature lovers and budget travelers.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> San Andres, Quezon</h5>
+                </button>
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Ticao_Island">
+                <button class="destination-card">
+                    <img src="Ticao Island Masbate 3 Final.jpg">
+                    <h3>Ticao Island</h3>
+                    <p>A serene, off-the-beaten-path destination known for its rich marine biodiversity, prehistoric artifacts, and natural wonders like waterfalls that plunge directly into the sea.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Masbate</h5>
+                </button>
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Calaguas">
+                <button class="destination-card">
+                    <img src="Calaguas_Island_in_Camarines_Norte.jpg">
+                    <h3>Calaguas Islands</h3>
+                    <p>A stunning, underrated beach destination known for their powdery white sand, turquoise waters, and peaceful vibe—often compared to Boracay before commercialization.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Camarines Norte</h5>
+                </button>
+            </a>
+            <a href="https://guidetothephilippines.ph/destinations-and-attractions/anguib-beach">
+                <button class="destination-card">
+                    <img src="sibang-cove-x-calayan.jpg">
+                    <h3>Anguib Beach</h3>
+                    <p>A hidden gem often dubbed the “Boracay of the North” for its powdery white sand and crystal-clear waters—minus the crowds. It's a peaceful, scenic destination perfect for beach lovers, nature seekers, and those craving a quiet coastal escape.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Santa Ana, Cagayan</h5>
+                </button>
+            </a>
+            <a href="https://www.philippinebeaches.org/diguisit-beach-baler-important-tips/">
+                <button class="destination-card">
+                    <img src="diguisit-beach-rock-formation.jpg">
+                    <h3>Diguisit Beach</h3>
+                    <p>A rugged coastal gem known for its dramatic rock formations, tidal pools, and scenic views—perfect for nature lovers, photographers, and road trippers. It's less about swimming and more about soaking in the raw beauty of Baler's shoreline.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Baler, Aurora</h5>
+                </button>
+            </a>
+            <a href="https://seepangasinan.com/places/malico-viewpoint/">
+                <button class="destination-card">
+                    <img src="malico.jpeg">
+                    <h3>Malico</h3>
+                    <p>A cool-climate mountain village often called the “Summer Capital of Pangasinan,” offering pine forests, scenic viewpoints, and a peaceful escape reminiscent of Baguio—but without the crowds. It's perfect for nature lovers, campers, and road trippers seeking fresh air and stunning landscapes.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> San Nicolas, Pangasinan</h5>
+                </button>
+            </a>
+        </div>
+        <h2>VISAYAS</h2>
+        <div class="destination-grid">
+            <a href="https://thefroggyadventures.com/cabagnow-cave-pool-bohol/">
+                <button class="destination-card">
+                    <img src="cabagnow-cave-pool.jpg" >
+                    <h3>Cabagnow Cave Pool</h3>
+                    <p>The largest, deepest water-filled cave in Anda, Bohol, formed by erosion, with a 4-5 meter jump into the clear water.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Anda, Bohol</h5>
+                </button>
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Malapascua">
+                <button class="destination-card">
+                    <img src="Malapascua_(island),_Tropical_lagoon,_Pure_tropical_bliss,_Philippines.jpg">
+                    <h3>Malapascua Island</h3>
+                    <p>A world-renowned diving destination famous for daily sightings of thresher sharks, pristine beaches, and laid-back island vibes.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Daanbantayan, Cebu</h5>
+                </button>
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Linapacan">
+                <button class="destination-card">
+                    <img src="linapacan.jpg">
+                    <h3>Linapacan Island</h3>
+                    <p>A hidden gem known for having some of the clearest waters in the world, perfect for island hopping, snorkeling, and off-the-beaten-path adventures.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Palawan</h5>
+                </button>
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Kalanggaman_Island">
+                <button class="destination-card">
+                    <img src="Kalanggaman_Island.jpg">
+                    <h3>Kalanggaman Island</h3>
+                    <p>Known for its crystal-clear waters, powdery white sand, and iconic twin sandbars stretching into the sea. It's one of the most photogenic and peaceful beach destinations in the Philippines.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Palompon, Leyte</h5>
+                </button>
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Gigantes_Islands">
+                <button class="destination-card">
+                    <img src="North-South_Gigante.jpeg">
+                    <h3>Gigantes Islands</h3>
+                    <p>Also known as Islas de Gigantes—are a remote, breathtaking archipelago off the northeastern coast of Panay Island, famous for dramatic limestone cliffs, white-sand beaches, and unlimited scallops.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Carles, Iloilo</h5>
+                </button>
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Cuatro_Islas">
+                <button class="destination-card">
+                    <img src="Sonnenuntergang_Panorama.jpg">
+                    <h3>Cuatro Islas</h3>
+                    <p>Is a group of four stunning islands known for white-sand beaches, crystal-clear waters, and peaceful island vibes—perfect for snorkeling, camping, and off-grid adventures.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Inopacan & Hindang, Leyte</h5>
+                </button>
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Canigao_Island">
+                <button class="destination-card">
+                    <img src="Canigao-Island-Aerial-View.jpg">
+                    <h3>Canigao Island</h3>
+                    <p>Canigao Island is uninhabited, featuring a lighthouse as its only significant man-made structure. The beaches have white sand, with tropical sea creatures and extensive coral reef in the surrounding waters.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Matalom, Leyte</h5>
+                </button>
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Sipalay">
+                <button class="destination-card">
+                    <img src="Pump_boat_in_Sipalay.jpg">
+                    <h3>Sipalay</h3>
+                    <p>A laid-back coastal city known for its hidden coves, cliffside resorts, and pristine beaches—perfect for travelers seeking nature, tranquility, and off-the-grid adventures.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Negros Occidental</h5>
+                </button>
+            </a>
+        </div>
+        <h2>MINDANAO</h2>
+        <div class="destination-grid">
+            <a href="https://www.cagayandeoro.gov.ph/index.php/item/367-mapawa-nature-park.html">
+                <button class="destination-card">
+                    <img src="Mapawa-Nature-Park-083.jpg">
+                    <h3>Mapawa Nature Park</h3>
+                    <p>An adventure park known for its waterfalls and range of outdoor activities like canyoneering, zip-lining, horseback riding, and river trekking. The park also offers camping and is a popular site for team-building events and even hosts marathons and triathlons.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Cagayan De Oro City, Misamis Oriental</h5>
+                </button>
+            </a>
+            <a href="https://www.cagayandeoro.gov.ph/index.php/item/372-gaston-park.html">
+                <button class="destination-card">
+                    <img src="Gaston_Park_fountain_sunset_(Capistrano,_Cagayan_De_Oro_City;_12-06-2023).jpg">
+                    <h3>Gaston Park</h3>
+                    <p>Named after a pre-war Municipal Mayor of Cagayan de Oro, Segundo Gaston, the park is located near the St. Augustine Cathedral and the Archbishop's Palace. Gaston Park was the main plaza of Cagayan de Misamis  during  the  Spanish  colonial period.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Cagayan De Oro City, Misamis Oriental</h5>
+                </button>
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Panampangan_Island">
+                <button class="destination-card">
+                    <img src="Panampangan_Island.jpg">
+                    <h3>Panampangan Island</h3>
+                    <p>Panampangan Island is a secluded tropical paradise in Panglima Sugala, Tawi-Tawi, known for its crystal-clear waters, white sand beaches, and serene atmosphere—
+                    <h5><i class="fas fa-map-marker-alt"></i> Sapa-Sapa, Tawi-Tawi</h5>
+                </button>
+            </a>
+            <a href="https://www.tanawexplorer.com/lake-holon-the-crown-jewel-of-the-south/">
+                <button class="destination-card">
+                    <img src="DSC_0061-1.jpg">
+                    <h3>Lake Holon</h3>
+                    <p>Is a breathtaking crater lake nestled within Mount Melibengoy (also known as Mt. Parker) in T'boli, South Cotabato. It's often called the “Crown Jewel of the South” for its pristine waters, cool climate, and deep cultural significance to the T'boli tribe.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> T'boli, South Cotabato</h5>
+                </button>
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Asik-Asik_Falls">
+                <button class="destination-card">
+                    <img src="Asik-Asik_Falls,_Alamada,_Cotabato.jpg">
+                    <h3>Asik-Asik Falls</h3>
+                    <p>A rare and mesmerizing waterfall where water springs directly from a lush, moss-covered cliff—creating a curtain-like cascade with no visible river source. It's one of Mindanao's most unique natural wonders and a must-visit for nature lovers and photographers.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Alamada, North Cotabato</h5>
+                </button>
+            </a>
+            <a href="https://tropicalislands.net/olanivan-island/">
+                <button class="destination-card">
+                    <img src="balut.jpg">
+                    <h3>Olanivan Island</h3>
+                    <p>a remote, circular paradise in Sarangani, Davao Occidental, known for its white sand beaches, turquoise waters, and vibrant coral reefs. Often compared to Maldives-style islands, it's a must-visit for travelers seeking serenity, snorkeling, and off-grid beauty.</p>
+                    <h5><i class="fas fa-map-marker-alt"></i> Sarangani, Davao Occidental</h5>
+                </button>
+            </a>
+        </div>
+    </section>
+   
+    <footer>
+        <section id="about">
+            <h2>About the Philippines</h2>
+            <p>The Philippines is an archipelago of over 7,000 islands, offering diverse landscapes from volcanoes to coral reefs. It's a paradise for nature lovers, adventure seekers, and culture enthusiasts.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Ready to plan your trip? Reach out for personalized recommendations.</p>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+        <p>&copy; 2025 Philippines Explorer. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
